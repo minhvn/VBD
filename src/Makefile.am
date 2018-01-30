@@ -480,9 +480,9 @@ dash_tx_LDADD = \
 dash_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# dashconsensus library #
+# vbdconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/dashconsensus.h
+include_HEADERS = script/vbdconsensus.h
 libvbdconsensus_la_SOURCES = \
   crypto/hmac_sha512.cpp \
   crypto/ripemd160.cpp \
@@ -492,7 +492,7 @@ libvbdconsensus_la_SOURCES = \
   hash.cpp \
   primitives/transaction.cpp \
   pubkey.cpp \
-  script/dashconsensus.cpp \
+  script/vbdconsensus.cpp \
   script/interpreter.cpp \
   script/script.cpp \
   uint256.cpp \
