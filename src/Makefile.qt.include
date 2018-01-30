@@ -1,4 +1,4 @@
-bin_PROGRAMS += qt/dash-qt
+bin_PROGRAMS += qt/vbd-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
 # dash qt core #
@@ -511,7 +511,7 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/dash-qt-res.rc
+BITCOIN_RC = qt/res/vbd-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
@@ -539,7 +539,7 @@ $(qt_libbitcoinqt_a_OBJECTS) $(qt_dash_qt_OBJECTS) : | $(QT_MOC)
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# dash-qt binary #
+# vbd-qt binary #
 qt_dash_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 qt_dash_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
@@ -593,9 +593,9 @@ CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda 
 CLEANFILES += $(CLEAN_QT)
 
 dash_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_dash_qt_OBJECTS) qt/dash-qt$(EXEEXT) $(LIBBITCOINQT)
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_dash_qt_OBJECTS) qt/vbd-qt$(EXEEXT) $(LIBBITCOINQT)
 
-dash_qt : qt/dash-qt$(EXEEXT)
+dash_qt : qt/vbd-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)
