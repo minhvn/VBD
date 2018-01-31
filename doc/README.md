@@ -28,13 +28,21 @@ visudo
 vbd ALL=(ALL:ALL) ALL
 
 su vbd
+
 git clone https://github.com/ctphu/VBD
+
 cd VBD
+
 ./autogen.sh
+
 ./configure
+
 ./make
+
 ./sudo make install
+
 mkdir ~/.vbdcore
+
 nano ~/.vbdcore/vbd.conf
 
 #Add 6 row below
@@ -46,7 +54,7 @@ txindex=1
 addnode=45.32.19.62
 addnode=104.238.157.165
 
-Ctrl+X to save it
+#Ctrl+X to save it
 
 #Run vbd:
 vbdd
