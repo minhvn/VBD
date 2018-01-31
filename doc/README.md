@@ -45,18 +45,23 @@ mkdir ~/.vbdcore
 
 nano ~/.vbdcore/vbd.conf
 
-#Add 6 row below
+# Add 6 row below
 
 server=1
+
 listen=1
+
 daemon=1
+
 txindex=1
+
 addnode=45.32.19.62
+
 addnode=104.238.157.165
 
-#Ctrl+X to save it
+# Ctrl+X to save it
 
-#Run vbd:
+# Run vbd:
 vbdd
 
 
