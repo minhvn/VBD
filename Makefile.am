@@ -14,8 +14,8 @@ BITCOIN_QT_BIN=$(top_builddir)/src/qt/vbd-qt$(EXEEXT)
 BITCOIN_CLI_BIN=$(top_builddir)/src/vbd-cli$(EXEEXT)
 BITCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win$(WINDOWS_BITS)-setup$(EXEEXT)
 
-OSX_APP=Dash-Qt.app
-OSX_DMG=Dash-Core.dmg
+OSX_APP=Vbd-Qt.app
+OSX_DMG=VBD.dmg
 OSX_BACKGROUND_IMAGE=background.tiff
 OSX_DEPLOY_SCRIPT=$(top_srcdir)/contrib/macdeploy/macdeployqtplus
 OSX_FANCY_PLIST=$(top_srcdir)/contrib/macdeploy/fancy.plist
