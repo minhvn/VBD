@@ -10,7 +10,9 @@ cd VBD
 
 ./autogen.sh
 
-./configure
+# https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md
+# ./configure
+./configure --disable-wallet --without-gui --without-miniupnpc
 
 make
 
