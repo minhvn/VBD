@@ -12,9 +12,9 @@ cd VBD
 
 ./configure
 
-./make
+make
 
-./sudo make install
+make install
 
 mkdir ~/.vbdcore
 
