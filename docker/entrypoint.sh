@@ -4,4 +4,4 @@
 #usermod -aG sudo vbd
 #su vbd
 
-vbdd
+vbdd -conf=.vbdcore/vbd.conf -datadir=.vbdcore

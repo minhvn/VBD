@@ -4,9 +4,9 @@
 #usermod -aG sudo vbd
 #su vbd
 
-mkdir ~/.vbdcore
+mkdir .vbdcore
 
-cat > ~/.vbdcore/vbd.conf <<EOF
+cat > .vbdcore/vbd.conf <<EOF
 gen=1
 server=1
 listen=1
