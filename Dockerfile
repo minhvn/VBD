@@ -15,8 +15,13 @@ WORKDIR /opt/build/vbd
 COPY docker/build-vbd.sh .
 RUN bash build-vbd.sh
 
+#### CLEANING ####
+FROM vbd-build as vbd-clean
+
+RUN rm -rf /opt/build/vbd/VBD
+
 #### CONFIG ####
-FROM vbd-build as vbd-create-conf
+FROM vbd-clean as vbd-create-conf
 
 WORKDIR /opt/build/vbd
 
