@@ -27,6 +27,7 @@ RUN bash create-conf-file.sh
 from vbd-create-conf as vbd-dash-run
 
 EXPOSE 9999
+EXPOSE 9998
 
 WORKDIR /opt/build/vbd
 COPY docker/entrypoint.sh .
