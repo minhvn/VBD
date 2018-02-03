@@ -18,8 +18,7 @@ RUN bash build-vbd.sh
 #### CONFIG ####
 FROM vbd-build as vbd-create-conf
 
-VOLUME /opt/run/vbd
-WORKDIR /opt/run/vbd
+WORKDIR /opt/build/vbd
 
 COPY docker/create-conf-file.sh .
 RUN bash create-conf-file.sh
@@ -29,8 +28,9 @@ from vbd-create-conf as vbd-dash-run
 
 EXPOSE 9999
 
-VOLUME /opt/run/vbd
-WORKDIR /opt/run/vbd
+WORKDIR /opt/build/vbd
 COPY docker/entrypoint.sh .
+
+VOLUME /opt/run/vbd/data
 
 CMD ["/bin/bash", "entrypoint.sh"]

@@ -7,6 +7,6 @@ services:
     ports:
       - "9999:9999"
     volumes:
-      - "vbd_run:/opt/run/vbd"
+      - "vbd_run:/opt/run/vbd/data"
 volumes:
   vbd_run:
