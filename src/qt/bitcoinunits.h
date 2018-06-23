@@ -57,9 +57,9 @@ public:
      */
     enum Unit
     {
-        VBD,
-        mVBD,
-        uVBD,
+        IDF,
+        mIDF,
+        uIDF,
         duffs
     };
 

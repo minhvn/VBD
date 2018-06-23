@@ -1,4 +1,4 @@
-VBD Core 0.12.2.3
+IDF Core 0.12.2.3
 Build Node Ubuntu 16.4
 
 Run follow it:
@@ -17,21 +17,21 @@ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-d
 
 sudo apt-get upgrade 
 
-adduser vbd
+adduser idf
 
-usermod -aG sudo vbd
+usermod -aG sudo idf
 
 visudo
 
 # find root ALL=(ALL:ALL) ALL paste the following under neath
 
-vbd ALL=(ALL:ALL) ALL
+idf ALL=(ALL:ALL) ALL
 
-su vbd
+su idf
 
-git clone https://github.com/ctphu/VBD
+git clone https://github.com/ctphu/IDF
 
-cd VBD
+cd IDF
 
 ./autogen.sh
 
@@ -41,9 +41,9 @@ cd VBD
 
 ./sudo make install
 
-mkdir ~/.vbdcore
+mkdir ~/.idfcore
 
-nano ~/.vbdcore/vbd.conf
+nano ~/.idfcore/idf.conf
 
 # Add 6 row below
 
@@ -61,8 +61,8 @@ addnode=104.238.157.165
 
 # Ctrl+X to save it
 
-# Run vbd:
-vbdd
+# Run idf:
+idfd
 
 
 Dash Core 0.12.1
@@ -78,12 +78,12 @@ The following are some helpful notes on how to run Dash on your native platform.
 
 Unpack the files into a directory and run:
 
-- `bin/vbd-qt` (GUI) or
+- `bin/idf-qt` (GUI) or
 - `bin/dashd` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run vbd-qt.exe.
+Unpack the files into a directory, and then run idf-qt.exe.
 
 ### OS X
 

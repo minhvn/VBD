@@ -78,9 +78,9 @@ static int AppInitRPC(int argc, char* argv[])
         std::string strUsage = _("Dash Core RPC client version") + " " + FormatFullVersion() + "\n";
         if (!mapArgs.count("-version")) {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  vbd-cli [options] <command> [params]  " + _("Send command to Dash Core") + "\n" +
-                  "  vbd-cli [options] help                " + _("List commands") + "\n" +
-                  "  vbd-cli [options] help <command>      " + _("Get help for a command") + "\n";
+                  "  idf-cli [options] <command> [params]  " + _("Send command to Dash Core") + "\n" +
+                  "  idf-cli [options] help                " + _("List commands") + "\n" +
+                  "  idf-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessageCli();
         }

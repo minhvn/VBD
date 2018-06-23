@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#adduser vbd
-#usermod -aG sudo vbd
-#su vbd
+#adduser idf
+#usermod -aG sudo idf
+#su idf
 
-mkdir -p /opt/run/vbd/.vbdcore
+mkdir -p /opt/run/idf/.idfcore
 
-cat > /opt/run/vbd/.vbdcore/vbd.conf <<EOF
+cat > /opt/run/idf/.idfcore/idf.conf <<EOF
 gen=1
 server=1
 listen=1

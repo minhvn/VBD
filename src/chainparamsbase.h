@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between vbd-cli and vbdd)
+ * CBaseChainParams defines the base parameters (shared between idf-cli and idfd)
  * of a given instance of the Dash system.
  */
 class CBaseChainParams

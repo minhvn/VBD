@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#adduser vbd
-#usermod -aG sudo vbd
-#su vbd
+#adduser idf
+#usermod -aG sudo idf
+#su idf
 
-ln -f -s /opt/run/vbd/data ~/.vbdcore
-ln -f -s /opt/run/vbd/.vbdcore/vbd.conf ~/.vbdcore/
+ln -f -s /opt/run/idf/data ~/.idfcore
+ln -f -s /opt/run/idf/.idfcore/idf.conf ~/.idfcore/
 
-vbdd -reindex-chainstate -conf=/opt/run/vbd/.vbdcore/vbd.conf -datadir=/opt/run/vbd/data
+idfd -reindex-chainstate -conf=/opt/run/idf/.idfcore/idf.conf -datadir=/opt/run/idf/data

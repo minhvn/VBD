@@ -145,8 +145,8 @@ public:
 
         
 
-        // Dash addresses start with 'V'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,70);
+        // Dash addresses start with 'F'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
         // Dash script addresses start with '7'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,16);
         // Dash private keys start with '7' or 'X'
@@ -278,7 +278,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("vbddot.io",  "testnet-seed.vbddot.io"));
+        vSeeds.push_back(CDNSSeedData("idfdot.io",  "testnet-seed.idfdot.io"));
         vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
 
         // Testnet Dash addresses start with 'y'

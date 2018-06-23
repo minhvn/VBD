@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "util.h"
-#include "test/test_vbd.h"
+#include "test/test_idf.h"
 
 #include <string>
 #include <vector>

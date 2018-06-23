@@ -1,7 +1,7 @@
 Dash Core staging tree 0.12.2
 ===============================
 
-`master:` [![Build Status](https://travis-ci.org/VISCHub/VBD.svg?branch=master)](https://travis-ci.org/VISCHub/VBD) `develop:` [![Build Status](https://travis-ci.org/VISCHub/VBD.svg?branch=develop)](https://travis-ci.org/VISCHub/VBD/branches)
+`master:` [![Build Status](https://travis-ci.org/VISCHub/IDF.svg?branch=master)](https://travis-ci.org/VISCHub/IDF) `develop:` [![Build Status](https://travis-ci.org/VISCHub/IDF.svg?branch=develop)](https://travis-ci.org/VISCHub/IDF/branches)
 
 https://www.dash.org
 

@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Dash"
-            VALUE "FileDescription",    "vbd-cli (JSON-RPC client for Dash Core)"
+            VALUE "FileDescription",    "idf-cli (JSON-RPC client for Dash Core)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "vbd-cli"
+            VALUE "InternalName",       "idf-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "vbd-cli.exe"
-            VALUE "ProductName",        "vbd-cli"
+            VALUE "OriginalFilename",   "idf-cli.exe"
+            VALUE "ProductName",        "idf-cli"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

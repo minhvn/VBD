@@ -114,7 +114,7 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 	
-    // Open vbd.conf
+    // Open idf.conf
     void openConfigfile();	
 
     // Open masternode.conf

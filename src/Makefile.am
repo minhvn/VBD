@@ -49,8 +49,8 @@ EXTRA_LIBRARIES += libbitcoin_zmq.a
 endif
 
 if BUILD_BITCOIN_LIBS
-lib_LTLIBRARIES = libvbdconsensus.la
-LIBBITCOIN_CONSENSUS=libvbdconsensus.la
+lib_LTLIBRARIES = libidfconsensus.la
+LIBBITCOIN_CONSENSUS=libidfconsensus.la
 else
 LIBBITCOIN_CONSENSUS=
 endif
@@ -60,15 +60,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += vbdd
+  bin_PROGRAMS += idfd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += vbd-cli vbd-tx
+  bin_PROGRAMS += idf-cli idf-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# vbd core #
+# idf core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -207,7 +207,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between vbdd and vbd-qt
+# server: shared between idfd and idf-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -280,7 +280,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between vbdd and vbd-qt, but only linked
+# wallet: shared between idfd and idf-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -343,7 +343,7 @@ crypto_libbitcoin_crypto_a_SOURCES += \
   crypto/sph_skein.h \
   crypto/sph_types.h
 
-# common: shared between vbdd, and vbd-qt and non-server tools
+# common: shared between idfd, and idf-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -403,7 +403,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between vbd-cli and vbd-qt
+# cli: shared between idf-cli and idf-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -414,16 +414,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-vbdd_SOURCES = vbdd.cpp
-vbdd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-vbdd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-vbdd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+idfd_SOURCES = idfd.cpp
+idfd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+idfd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+idfd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-vbdd_SOURCES += vbdd-res.rc
+idfd_SOURCES += idfd-res.rc
 endif
 
-vbdd_LDADD = \
+idfd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -434,56 +434,56 @@ vbdd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-vbdd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+idfd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-vbdd_LDADD += libbitcoin_wallet.a
+idfd_LDADD += libbitcoin_wallet.a
 endif
 
-vbdd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+idfd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# vbd-cli binary #
-vbd_cli_SOURCES = vbd-cli.cpp
-vbd_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-vbd_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-vbd_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# idf-cli binary #
+idf_cli_SOURCES = idf-cli.cpp
+idf_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+idf_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+idf_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-vbd_cli_SOURCES += vbd-cli-res.rc
+idf_cli_SOURCES += idf-cli-res.rc
 endif
 
-vbd_cli_LDADD = \
+idf_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-vbd_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+idf_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# vbd-tx binary #
-vbd_tx_SOURCES = vbd-tx.cpp
-vbd_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-vbd_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-vbd_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# idf-tx binary #
+idf_tx_SOURCES = idf-tx.cpp
+idf_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+idf_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+idf_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-vbd_tx_SOURCES += vbd-tx-res.rc
+idf_tx_SOURCES += idf-tx-res.rc
 endif
 
-vbd_tx_LDADD = \
+idf_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-vbd_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+idf_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# vbdconsensus library #
+# idfconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/vbdconsensus.h
-libvbdconsensus_la_SOURCES = \
+include_HEADERS = script/idfconsensus.h
+libidfconsensus_la_SOURCES = \
   crypto/hmac_sha512.cpp \
   crypto/ripemd160.cpp \
   crypto/sha1.cpp \
@@ -492,20 +492,20 @@ libvbdconsensus_la_SOURCES = \
   hash.cpp \
   primitives/transaction.cpp \
   pubkey.cpp \
-  script/vbdconsensus.cpp \
+  script/idfconsensus.cpp \
   script/interpreter.cpp \
   script/script.cpp \
   uint256.cpp \
   utilstrencodings.cpp
 
 if GLIBC_BACK_COMPAT
-  libvbdconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libidfconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libvbdconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libvbdconsensus_la_LIBADD = $(LIBSECP256K1)
-libvbdconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libvbdconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libidfconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libidfconsensus_la_LIBADD = $(LIBSECP256K1)
+libidfconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libidfconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #

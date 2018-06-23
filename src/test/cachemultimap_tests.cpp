@@ -2,7 +2,7 @@
 
 #include "cachemultimap.h"
 
-#include "test/test_vbd.h"
+#include "test/test_idf.h"
 
 #include <algorithm>
 #include <iostream>

@@ -1,42 +1,42 @@
 #### BASE ####
-FROM ubuntu:16.04 as vbd-base
+FROM ubuntu:16.04 as idf-base
 
-RUN mkdir -p /opt/build/vbd
-WORKDIR /opt/build/vbd
+RUN mkdir -p /opt/build/idf
+WORKDIR /opt/build/idf
 
 COPY docker/install-deps.sh .
 RUN bash install-deps.sh
 
 #### BUILD ####
-FROM vbd-base as vbd-build
+FROM idf-base as idf-build
 
-WORKDIR /opt/build/vbd
+WORKDIR /opt/build/idf
 
-COPY docker/build-vbd.sh .
-RUN bash build-vbd.sh
+COPY docker/build-idf.sh .
+RUN bash build-idf.sh
 
 #### CLEANING ####
-FROM vbd-build as vbd-clean
+FROM idf-build as idf-clean
 
-RUN rm -rf /opt/build/vbd/VBD
+RUN rm -rf /opt/build/idf/IDF
 
 #### CONFIG ####
-FROM vbd-clean as vbd-create-conf
+FROM idf-clean as idf-create-conf
 
-WORKDIR /opt/build/vbd
+WORKDIR /opt/build/idf
 
 COPY docker/create-conf-file.sh .
 RUN bash create-conf-file.sh
 
 #### RUNTIME ####
-from vbd-create-conf as vbd-dash-run
+from idf-create-conf as idf-dash-run
 
 EXPOSE 9999
 EXPOSE 9998
 
-WORKDIR /opt/build/vbd
+WORKDIR /opt/build/idf
 COPY docker/entrypoint.sh .
 
-VOLUME /opt/run/vbd/data
+VOLUME /opt/run/idf/data
 
 CMD ["/bin/bash", "entrypoint.sh"]

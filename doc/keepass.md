@@ -12,7 +12,7 @@ The implementation is dependent on the following:
 
 ### What's new
 
-The following new options are available for dashd and vbd-qt:
+The following new options are available for dashd and idf-qt:
  - _-keepass_ Use KeePass 2 integration using KeePassHttp plugin (default: 0)
  - _-keepassport=_ Connect to KeePassHttp on port (default: 19455)
  - _-keepasskey=_ KeePassHttp key for AES encrypted communication with KeePass
@@ -27,12 +27,12 @@ The following rpc commands are available:
 
 ### How to setup
 
-Sample initialization flow from _vbd-qt_ console (this needs to be done only once to set up the association):
+Sample initialization flow from _idf-qt_ console (this needs to be done only once to set up the association):
 
  - Have KeePass running with an open database
- - Start _vbd-qt_
+ - Start _idf-qt_
  - Open console
- - Type "_keepass init_" in vbd-qt console
+ - Type "_keepass init_" in idf-qt console
  - Keepass pops up and asks for an association id, fill that in, for example, "_mydrkwallet_"
  - You should get a response like this "_Association successful. Id: mydrkwalletdash - Key: AgQkcs6cI7v9tlSYKjG/+s8wJrGALHl3jLosJpPLzUE=_"
  - Edit _dash.conf_ and fill in these values
@@ -42,7 +42,7 @@ keepasskey=AgQkcs6cI7v9tlSYKjG/+s8wJrGALHl3jLosJpPLzUE=
 keepassid=mydrkwallet
 keepassname=testwallet
 ```
- - Restart _vbd-qt_
+ - Restart _idf-qt_
 
 At this point, the association is made. The next action depends on your particular situation:
 

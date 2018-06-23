@@ -52,10 +52,10 @@ static int AppInitRawTx(int argc, char* argv[])
     if (argc<2 || mapArgs.count("-?") || mapArgs.count("-h") || mapArgs.count("-help"))
     {
         // First part of help message is specific to this utility
-        std::string strUsage = _("Dash Core vbd-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Dash Core idf-tx utility version") + " " + FormatFullVersion() + "\n\n" +
             _("Usage:") + "\n" +
-              "  vbd-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded dash transaction") + "\n" +
-              "  vbd-tx [options] -create [commands]   " + _("Create hex-encoded dash transaction") + "\n" +
+              "  idf-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded dash transaction") + "\n" +
+              "  idf-tx [options] -create [commands]   " + _("Create hex-encoded dash transaction") + "\n" +
               "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());

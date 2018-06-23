@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2018 The Dash Core developers
-// Copyright (c) 2018-2018 The VBD Core developers
+// Copyright (c) 2018-2018 The IDF Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,9 +20,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(VBD);
-    unitlist.append(mVBD);
-    unitlist.append(uVBD);
+    unitlist.append(IDF);
+    unitlist.append(mIDF);
+    unitlist.append(uIDF);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -31,9 +31,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case VBD:
-    case mVBD:
-    case uVBD:
+    case IDF:
+    case mIDF:
+    case uIDF:
     case duffs:
         return true;
     default:
@@ -47,9 +47,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case VBD: return QString("VBD");
-            case mVBD: return QString("mVBD");
-            case uVBD: return QString::fromUtf8("μVBD");
+            case IDF: return QString("IDF");
+            case mIDF: return QString("mIDF");
+            case uIDF: return QString::fromUtf8("μIDF");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -58,9 +58,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case VBD: return QString("tVBD");
-            case mVBD: return QString("mtVBD");
-            case uVBD: return QString::fromUtf8("μtVBD");
+            case IDF: return QString("tIDF");
+            case mIDF: return QString("mtIDF");
+            case uIDF: return QString::fromUtf8("μtIDF");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -73,10 +73,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case VBD: return QString("VBD");
-            case mVBD: return QString("Milli-VBD (1 / 1" THIN_SP_UTF8 "000)");
-            case uVBD: return QString("Micro-VBD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-VBD (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case IDF: return QString("IDF");
+            case mIDF: return QString("Milli-IDF (1 / 1" THIN_SP_UTF8 "000)");
+            case uIDF: return QString("Micro-IDF (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-IDF (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -84,10 +84,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case VBD: return QString("TestVBD");
-            case mVBD: return QString("Milli-TestVBD (1 / 1" THIN_SP_UTF8 "000)");
-            case uVBD: return QString("Micro-TestVBD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestVBD (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case IDF: return QString("TestIDF");
+            case mIDF: return QString("Milli-TestIDF (1 / 1" THIN_SP_UTF8 "000)");
+            case uIDF: return QString("Micro-TestIDF (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestIDF (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -97,9 +97,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case VBD:  return 100000000;
-    case mVBD: return 100000;
-    case uVBD: return 100;
+    case IDF:  return 100000000;
+    case mIDF: return 100000;
+    case uIDF: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -109,9 +109,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case VBD: return 8;
-    case mVBD: return 5;
-    case uVBD: return 2;
+    case IDF: return 8;
+    case mIDF: return 5;
+    case uIDF: return 2;
     case duffs: return 0;
     default: return 0;
     }

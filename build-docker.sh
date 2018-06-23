@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t vietlq/vbd-ubuntu .
+docker build -t vietlq/idf-ubuntu .

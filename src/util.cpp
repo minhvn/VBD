@@ -116,8 +116,8 @@ bool fLiteMode = false;
 */
 int nWalletBackups = 10;
 
-const char * const BITCOIN_CONF_FILENAME = "vbd.conf";
-const char * const BITCOIN_PID_FILENAME = "vbdd.pid";
+const char * const BITCOIN_CONF_FILENAME = "idf.conf";
+const char * const BITCOIN_PID_FILENAME = "idfd.pid";
 
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
@@ -519,7 +519,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Vbdcore
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Vbdcore
     // Mac: ~/Library/Application Support/Vbdcore
-    // Unix: ~/.vbdcore
+    // Unix: ~/.idfcore
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Vbdcore";
@@ -535,7 +535,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Library/Application Support/Vbdcore";
 #else
     // Unix
-    return pathRet / ".vbdcore";
+    return pathRet / ".idfcore";
 #endif
 #endif
 }
@@ -629,7 +629,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()){
-        // Create empty vbd.conf if it does not excist
+        // Create empty idf.conf if it does not excist
         FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -641,7 +641,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override vbd.conf
+        // Don't overwrite existing settings so command line settings override idf.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);
